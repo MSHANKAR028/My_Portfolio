@@ -1,0 +1,83 @@
+.detail-page-wrapper {
+  padding-top: 150px; /* This pushes the content down so the navbar doesn't hide it! */
+  z-index: 1;
+}
+
+.back-btn {
+  background-color: #6b312e; /* Give it a color so it's not invisible */
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  transform: translateX(-5px);
+}
+
+.detail-title {
+  font-family: 'Georgia', serif;
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  border-left: 5px solid #6b312e;
+  padding-left: 20px;
+}
+
+/* Fixes the image stacking! */
+.detail-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.02);
+}
+
+/* The "Splash" Summary Box */
+.detail-text-box {
+  background: white;
+  padding: 40px;
+  border-radius: 50px 20px 50px 20px;
+  border-left: 15px solid; /* Color will be dynamic from JS */
+  box-shadow: 15px 15px 40px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-text-box h2 {
+  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.detail-text-box p {
+  line-height: 1.8;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* Tiny floating blob for that "Interactive" feel */
+.floating-blob {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -30px;
+  bottom: -30px;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.5;
+}

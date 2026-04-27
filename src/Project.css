@@ -1,0 +1,112 @@
+.projects-page-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fdf5e6; /* Matching your cream theme */
+  padding: 120px 5% 50px; /* Space for navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects-header {
+  margin-bottom: 50px;
+}
+
+.projects-title-box {
+  background-color: #6b312e; /* Dark brown from your figma */
+  color: white;
+  padding: 10px 60px;
+  border-radius: 15px;
+  font-family: 'Georgia', serif;
+}
+.project-title-link {
+  text-decoration: none !important; /* Removes the underline */
+  color: inherit !important;       /* Keeps your text dark brown/black */
+  display: block;
+  cursor: pointer;                 /* Makes the little hand icon appear */
+  margin-top: 15px;
+  transition: transform 0.2s ease;
+}
+
+.project-title-link:hover {
+  transform: scale(1.05);          /* Makes it "pop" when you hover! */
+  color: #6b312e;                  /* Optional: changes color slightly on hover */
+}
+
+/* Ensure the splatter doesn't block clicks */
+.project-splatter {
+  pointer-events: none;            /* This makes the splatter "invisible" to clicks */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+  gap: 80px 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The watercolor splash behind each project */
+.project-splatter {
+  position: absolute;
+  width: 110%;
+  height: 120%;
+  top: -10%;
+  z-index: 1;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 70%;
+  opacity: 0.4;
+  filter: blur(10px);
+}
+
+.carousel-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.image-frame {
+  width: 100%;
+  height: 250px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+.project-caption {
+  margin-top: 15px;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  z-index: 2;
+  font-size: 0.9rem;
+}
