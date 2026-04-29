@@ -2,33 +2,45 @@
 .about-page-wrapper {
   width: 100vw;
   min-height: 100vh;
-  background-color: #fdf5e6 !important; /* Cream background */
+  background-color: #fdf5e6 !important; 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: clamp(80px, 10vh, 120px) 20px 60px;
   position: relative;
   overflow: hidden; 
 }
 
 .about-content-container {
   display: flex;
+  flex-direction: column; /* Mobile-first stacking */
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 40px;
   max-width: 1400px;
   width: 100%;
   position: relative;
   z-index: 10; 
 }
 
-/* Photo Frame: Blob shape logic */
+/* --- THE PHOTO FIX --- */
+.about-left-section {
+  width: 100%;
+  max-width: 360px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .profile-frame {
-  width: 340px;
-  height: 460px;
+  /* Slightly wider to allow the photo to sit more naturally */
+  width: clamp(290px, 90vw, 350px);
+  height: clamp(390px, 55vh, 470px);
   background: white;
-  padding: 12px;
-  border-radius: 40% 60% 65% 35% / 35% 45% 55% 65%; 
+  padding: 10px;
+  /* Softened the top curves (the first two numbers) so they don't "bite" into your forehead */
+  border-radius: 48% 52% 60% 40% / 30% 35% 65% 70%; 
   overflow: hidden;
   box-shadow: 10px 10px 30px rgba(0,0,0,0.05);
 }
@@ -37,77 +49,65 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* FIXED: Lowering this percentage pulls the top of the image down into view */
-  object-position: center 5%; 
+  /* 10% is the "Sweet Spot" - it's just enough to clear the frame 
+     without causing the image to look misaligned */
+  object-position: center 10%; 
   border-radius: inherit;
 }
 
-/* Main Bio Splash */
+/* --- THE REST OF THE STYLES --- */
+.about-right-section {
+  width: 100%;
+  max-width: 750px;
+}
+
 .main-blue-splash {
   background-color: #bcd9ea;
-  padding: 70px 90px;
-  max-width: 750px;
-  min-height: 520px;
-  border-radius: 45% 55% 50% 50% / 40% 40% 60% 60%; 
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: clamp(30px, 7vw, 70px);
+  border-radius: 40px; 
+  text-align: center;
   box-shadow: inset 0 0 40px rgba(255,255,255,0.2);
 }
 
 .bio-paragraph {
   font-family: 'Georgia', serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.8;
   color: #1a1a1a;
-  margin-bottom: 18px;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* --- BACKGROUND SPLATTER LOGIC --- */
+@media (min-width: 1024px) {
+  .about-content-container {
+    flex-direction: row; 
+    gap: 80px;
+  }
+  .main-blue-splash {
+    border-radius: 45% 55% 50% 50% / 40% 40% 60% 60%;
+  }
+}
+
+/* Background Splatters */
 .bg-splatter {
   position: absolute;
   background-color: #bcd9ea;
   border-radius: 50%;
   z-index: 1;
-  opacity: 0.6; 
+  opacity: 0.5; 
 }
+.s1 { width: 80px; height: 75px; top: 10%; left: 5%; }
+.s6 { width: 90px; height: 85px; top: 15%; right: 5%; }
 
-/* Scatters */
-.s1 { width: 80px; height: 75px; top: 10%; left: 5%; border-radius: 30% 70%; transform: rotate(-15deg); }
-.s2 { width: 25px; height: 25px; top: 25%; left: 15%; }
-.s3 { width: 50px; height: 50px; bottom: 15%; left: 8%; border-radius: 60% 40%; }
-.s4 { width: 15px; height: 15px; bottom: 30%; left: 4%; }
-.s5 { width: 40px; height: 35px; top: 45%; left: 2%; opacity: 0.4; }
-.s6 { width: 90px; height: 85px; top: 15%; right: 5%; border-radius: 70% 30%; transform: rotate(20deg); }
-.s7 { width: 30px; height: 30px; top: 35%; right: 12%; }
-.s8 { width: 60px; height: 55px; bottom: 10%; right: 8%; border-radius: 40% 60%; }
-.s9 { width: 20px; height: 20px; bottom: 25%; right: 3%; }
-.s10 { width: 35px; height: 35px; top: 50%; right: 2%; opacity: 0.4; }
-
-.paint-drop { position: absolute; background-color: #bcd9ea; border-radius: 50%; z-index: 1; }
-.drop-1 { width: 50px; height: 50px; top: -20px; left: 15%; }
-.drop-2 { width: 35px; height: 35px; bottom: 0%; right: -25px; }
-.drop-3 { width: 25px; height: 25px; top: 30%; left: -40px; }
-
-/* Contact Area */
 .contact-links-area {
-  margin-top: 30px;
-  color: #000;
-  line-height: 2.2;
+  margin-top: 25px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  /* This ensures the phone number and all text in this area are bold */
+  font-weight: 700; 
 }
 
-.contact-links-area p, 
 .contact-links-area a { 
   font-weight: 700; 
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px; 
+  text-decoration: none; 
+  color: #000; 
 }

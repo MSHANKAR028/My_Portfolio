@@ -1,12 +1,11 @@
 import React from 'react';
 import './AboutMe.css';
-// Updated to reference your new PNG file
 import profilePic from './assets/Pictures for Portfolio/Midwest_Health/Profile.PNG';
 
 function AboutMe() {
   return (
     <div className="about-page-wrapper">
-      {/* Background droplets scattered across the page */}
+      {/* Background droplets scattered artistically */}
       <div className="bg-splatter s1"></div>
       <div className="bg-splatter s2"></div>
       <div className="bg-splatter s3"></div>
@@ -27,9 +26,13 @@ function AboutMe() {
           </div>
           <div className="contact-links-area">
             <p>📞 925-260-9218</p>
-            <p>🔗 <a href="https://www.linkedin.com/in/mahima-shankar-2012a1263/" target="_blank" rel="noreferrer">LinkedIn</a></p>
-            <p>💻 <a href="https://github.com/MSHANKAR028" target="_blank" rel="noreferrer">GitHub</a></p>
-        </div>
+            <p>
+              🔗 <a href="https://www.linkedin.com/in/mahima-shankar-2012a1263/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </p>
+            <p>
+              💻 <a href="https://github.com/MSHANKAR028" target="_blank" rel="noreferrer">GitHub</a>
+            </p>
+          </div>
         </div>
 
         {/* Right Side: The Main Bio Splash */}

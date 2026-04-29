@@ -1,46 +1,45 @@
+/* --- PROJECTS PAGE WRAPPER --- */
 .projects-page-wrapper {
   width: 100vw;
   min-height: 100vh;
-  background-color: #fdf5e6; /* Matching your cream theme */
-  padding: 120px 5% 50px; /* Space for navbar */
+  background-color: #fdf5e6; 
+  /* Increased top padding to ensure the header box has plenty of room */
+  padding: 140px 5% 50px; 
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden; 
 }
 
 .projects-header {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+/* --- THE HEADER BOX (FIXED) --- */
 .projects-title-box {
-  background-color: #6b312e; /* Dark brown from your figma */
-  color: white;
-  padding: 10px 60px;
+  background-color: #6b312e;
+  padding: 15px 60px;
   border-radius: 15px;
   font-family: 'Georgia', serif;
-}
-.project-title-link {
-  text-decoration: none !important; /* Removes the underline */
-  color: inherit !important;       /* Keeps your text dark brown/black */
-  display: block;
-  cursor: pointer;                 /* Makes the little hand icon appear */
-  margin-top: 15px;
-  transition: transform 0.2s ease;
+  display: inline-block; /* Ensures the box wraps the text perfectly */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.project-title-link:hover {
-  transform: scale(1.05);          /* Makes it "pop" when you hover! */
-  color: #6b312e;                  /* Optional: changes color slightly on hover */
+.projects-title-box h1 {
+  color: #ffffff !important; 
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
 }
 
-/* Ensure the splatter doesn't block clicks */
-.project-splatter {
-  pointer-events: none;            /* This makes the splatter "invisible" to clicks */
-}
-
+/* --- GRID SYSTEM --- */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 80px 40px;
   max-width: 1200px;
   width: 100%;
@@ -51,9 +50,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
-/* The watercolor splash behind each project */
+/* --- WATERCOLOR SPLASH --- */
 .project-splatter {
   position: absolute;
   width: 110%;
@@ -63,8 +63,10 @@
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 70%;
   opacity: 0.4;
   filter: blur(10px);
+  pointer-events: none; 
 }
 
+/* --- CAROUSEL --- */
 .carousel-container {
   position: relative;
   z-index: 2;
@@ -75,12 +77,12 @@
 }
 
 .image-frame {
-  width: 100%;
+  flex-grow: 1;
   height: 250px;
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .image-frame img {
@@ -92,9 +94,10 @@
 .arrow {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
+  color: #6b312e;
+  padding: 5px;
   transition: transform 0.2s;
 }
 
@@ -102,11 +105,42 @@
   transform: scale(1.2);
 }
 
-.project-caption {
+/* --- CAPTIONS (FIXED TO BLACK) --- */
+.project-title-link {
+  text-decoration: none !important;
+  /* UPDATED: Captions are now black */
+  color: #000000 !important; 
+  display: block;
+  cursor: pointer;
   margin-top: 15px;
   font-weight: bold;
   font-family: 'Georgia', serif;
+  z-index: 5;
   text-align: center;
-  z-index: 2;
-  font-size: 0.9rem;
+}
+
+.project-caption {
+  margin: 0;
+  color: #000000 !important;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .projects-page-wrapper {
+    padding-top: 100px;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr; 
+    gap: 60px; 
+    padding: 0 10px;
+  }
+
+  .projects-title-box {
+    padding: 10px 30px;
+  }
+
+  .image-frame {
+    height: 200px; 
+  }
 }
